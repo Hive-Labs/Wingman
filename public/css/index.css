@@ -173,9 +173,9 @@ body:after {
 }
 .nl-form {
     width: 100%;
-    margin: 0.3em auto 0 auto;
-    font-size: 4em;
-    line-height: 1.5;
+    margin: 0 auto 0 auto;
+    font-size: 3.8em;
+    line-height: 1.4;
     font-family: 'Gotham-Light';
     ;
     color: white;
@@ -321,7 +321,7 @@ body:after {
     float: left;
     width: 40px;
     height: 40px;
-    font-size: 40px;
+    font-size: 45px;
     line-height: 40px;
     -webkit-animation: bounce 2s infinite ease-in-out;
     margin-top: 40px;
@@ -337,7 +337,7 @@ body:after {
     float: left;
 }
 .money {
-    margin-left: -40px;
+    margin-left: -60px;
     color: white;
     font-size: 12pt;
     margin-top: 80px;
