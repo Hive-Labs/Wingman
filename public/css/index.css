@@ -160,7 +160,7 @@ body:after{
     font-size: 4em;
     line-height: 1.5;
     font-family: 'Gotham-Light';;
-    color: #ffe8e7;
+    color: white;
 }
 .nl-field-toggle, .nl-form input, .nl-form select {
     line-height: inherit;
@@ -292,4 +292,62 @@ body:after{
 
 .movieList{
   display:none;
+}
+
+.planList {
+  height: 200px;
+  width: 825px;
+  display: none;
+  color: #29a468;
+}
+
+.start {
+    float: left !important;
+    margin-top: 27px !important;
+    font-size: 75px !important;
+    margin-right: 20px;
+}
+
+.finish{
+  float: left !important;
+  margin-top: 27px !important;
+  font-size: 75px !important; 
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.arrow {
+    float: left;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    line-height: 40px;
+    -webkit-animation: bounce 2s infinite ease-in-out;
+    margin-top: 40px;
+
+}
+
+.foodList{
+  display: none;
+}
+
+.time {
+  margin-left: -40px;
+  color: white;
+  font-size: 12pt;
+  margin-top: 20px;
+  float: left;
+}
+
+.money {
+  margin-left: -40px;
+  color: white;
+  font-size: 12pt;
+  margin-top: 80px;
+  float: left;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 60%, 100%  { -webkit-transform: translateX(-10); }
+    40%  { -webkit-transform: translateX(0px); }
+  80% { -webkit-transform: translateX(10px); }
 }

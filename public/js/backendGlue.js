@@ -23,7 +23,6 @@ $(document).ready(function(){
 		  	console.log(data);
 		  	data.restaurants.forEach(function(item, idx){
 		  			if(idx >= 5) return;
-		  			console.log("IN!");
 		  			var thisDiv = jQuery('<div class="cardLayout"><div class="top"><div class="bkg"></div><div class="name"></div><div class="location"></div></div><div class="bottom"><div class="stars"></div><div class="price"></div></div></div>', {
 					    id: 'cardId' + idx
 					});
@@ -40,6 +39,7 @@ $(document).ready(function(){
 					thisDiv.find(".bkg").css("background-image", "url('" + item.logo + "')");
 					thisDiv.find(".price").text("$" + ((item.delivery_minimum.price / 100) + 10));
 					thisDiv.appendTo($(".foodList"));
+					$(".foodList").show();
 
 					thisDiv.click(function(){
 						currFood = item;
@@ -82,6 +82,7 @@ function calculateUber(food, movie){
 	  var $attrib = $('<div id="attributions"></div>');
 	  service = new google.maps.places.PlacesService($attrib[0]);
 	  service.textSearch(request, function(results, status){
+	  	console.log(results[0]);
 	  	if (status == google.maps.places.PlacesServiceStatus.OK) {
 			var datas = [{
 			  	slat: currPosition.coords.latitude,
@@ -91,34 +92,65 @@ function calculateUber(food, movie){
 			  }, {
 				slat: food.address.latitude,
 				slon: food.address.longitude,
-			  	elat: results.geometry.location.lat(),
-				elon: results.geometry.location.lng()
+			  	elat: results[0].geometry.location.lat(),
+				elon: results[0].geometry.location.lng()
 			  }, {
-			  	slat: results.geometry.location.lat(),
-				slon: results.geometry.location.lng(),
+			  	slat: results[0].geometry.location.lat(),
+				slon: results[0].geometry.location.lng(),
 				elat: currPosition.coords.latitude,
 				elon: currPosition.coords.longitude
 			  }]
-			for(int i = 0; i < datas.length; i++){
-				ways[i] = getUber(datas[i]);
-			}
-		 	
+			getUber(datas[0], function(data){
+					ways[0] = data;
+					getUber(datas[1], function(data){
+						ways[1] = data;
+						getUber(datas[2], function(data){
+							ways[2] = data;
+							var foodDiv = $(".finalFood");
+							foodDiv.find(".name").text(food.name);
+							foodDiv.find(".location").text(food.address.address_locality + ", " + food.address.address_region);
+							for(var j = 0; j < food.ratings.rating_value; j++){
+								var starDiv = jQuery('<div/>', {
+								});
+								starDiv.addClass("glyphicon glyphicon-star");
+								starDiv.appendTo(foodDiv.find(".stars"));
+							}
+							foodDiv.find(".bkg").css("background-image", "url('" + food.logo + "')");
+							foodDiv.find(".price").text("$" + ((food.delivery_minimum.price / 100) + 10));
+
+							var movieDiv = $(".finalMovie");
+							movieDiv.find(".name").text(movie.title);
+							movieDiv.find(".location").text(movie.showtimes[0].theatre.name);
+							movieDiv.find(".stars").text(movie.ratings[0].code);
+							var time = new Date(movie.showtimes[0].dateTime);
+							movieDiv.find(".price").text((time.getHours() < 10 ? ("0" + time.getHours()) : time.getHours())
+							 + ":" + (time.getMinutes() < 10 ? ("0" + time.getMinutes()) : time.getMinutes()));
+
+							for(var j = 0; j < 3; j++){
+								$(".time" + j).text(ways[j].duration + "m");
+								$(".money" + j).text(ways[j].price);
+							}
+
+							$(".planList").css("display", "inline-block");
+						 	$(".movieList").hide();
+						});
+					});
+				});
 		}
 	  });
 }
 
-function getUber(data){
+function getUber(data, cb){
 	$.ajax({
 		  type: "POST",
 		  url: "/v1/uber",
 		  data: data,
 		  success: function(data){
-		  	ways[0] = {
+		  	cb({
 		  		price: data.price.prices[0].estimate,
 		  		duration: data.price.prices[0].duration / 60,
 		  		distance: data.price.prices[0].distance
-		  	}
-		  	
+		  	});
 		  }
 		});
 }
