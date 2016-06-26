@@ -2,8 +2,8 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Wingman | Hivelabs</title>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -22,7 +22,7 @@
 		<link rel="stylesheet" type="text/css" href="/css/effect.css" />
 		<link rel="stylesheet" type="text/css" href="/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="/css/index.css" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<script src="/js/modernizr.custom.js"></script>
 		<!-- Progress Bar -->
 		<script src="//fast.eager.io/FhjVmkFY1Z.js"></script>
@@ -32,9 +32,9 @@
 			window.onload = function(){
 				var nlform = new NLForm(document.getElementById('nl-form'));
 				var images = ['bluevan.jpg', 'canoelake.jpg', 'mtjump.jpg', 'shaggy.jpg', 'sunsetbeach.jpg'];
-		   		$('#background').css({'background-image': 'url(/img/images/backgroundImages/' + images[Math.floor(Math.random() * images.length)] + ')'});    
-			}	
-		</script>  
+		   		$('#background').css({'background-image': 'url(/img/images/backgroundImages/' + images[Math.floor(Math.random() * images.length)] + ')'});
+			}
+		</script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHu_rbvc8QwcZze4pCS3AuJASFEbefBk8&libraries=places"></script>
 	</head>
 	<body class="wingmanMain">
@@ -43,7 +43,7 @@
 			<!-- initial header -->
 			<header class="ip-header">
 				<h1 class="ip-logo">
-				<i id="icon" class="fa fa-connectdevelop" style="text-shadow: none; font-size: 200px; color: rgb(41, 164, 104); height: 320px; width: 320px; line-height: 150px; border-radius: 0%; text-align: center;"></i> 
+				<i id="icon" class="fa fa-connectdevelop" style="text-shadow: none; font-size: 200px; color: rgb(41, 164, 104); height: 320px; width: 320px; line-height: 150px; border-radius: 0%; text-align: center;"></i>
 				</h1>
 				<div class="ip-loader">
 					<svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
@@ -52,18 +52,18 @@
 					</svg>
 				</div>
 			</header>
-			
+
 			<!-- main content -->
 			<div class="ip-main">
 				<div id="background"></div>
 					<div id="appContainer" class="appContainer jumbotron">
 					        <div class="main clearfix">
 					            <div id="nl-form" class="nl-form">
-					                I have <input type="text" name="money" value="" placeholder="$$$" data-subline="For example: <em>$300</em> or <em>$45.50</em>"/> for 
+					                I have <input type="text" name="money" value="" placeholder="$$$" data-subline="For example: <em>$300</em> or <em>$45.50</em>"/> for
 					                <input type="text" name="people" value="" placeholder="2" data-subline="For example: <em>4</em>"/>
-					                 people. 
+					                 people.
 					                <br>
-					                We want 
+					                We want
 					                <select name="food">
 					                    <option value="1" selected>any food</option>
 					                    <option value="2">Indian food</option>
@@ -83,7 +83,7 @@
 					                    <option value="2">at 11 pm</option>
 					                </select>
 					                around <input name="location" type="text" value="" placeholder="here" data-subline="For example: <em>Boston</em> or <em>Los Angeles</em>"/>.
-					                <br> 
+					                <br>
 					                I <select name="uber">
 					                    <option value="1" selected>need</option>
 					                    <option value="2">don't need</option>
@@ -93,11 +93,11 @@
 					                </div>
 					                <div class="foodList">
 					                <p>Pick something to eat:</p>
-						                
+
 					                </div>
 					               	<div class="movieList">
 					                <p>Pick something to watch:</p>
-						                
+
 					                </div>
 					                <div class="planList">
 					                <p class="totalCost">Here's your plan! Your total cost for this plan is $100.</p>
@@ -119,14 +119,16 @@
 					                </div>
 					                <div class="nl-overlay"></div>
 					            </div>
-					        </div>   
-					        
+					        </div>
+
 					<!--<div class="footer">&copy; Wingman, 2016</div>-->
 			</div>
 		</div><!-- /container -->
+		<div class="modal"><!-- Place at bottom of page --></div>
 		<script src="/js/classie.js"></script>
 		<script src="/js/pathLoader.js"></script>
 		<script src="/js/main.js"></script>
 		<script src="/js/backendGlue.js"></script>
+		<script src="/js/loadingModal.js"></script>
 	</body>
 </html>

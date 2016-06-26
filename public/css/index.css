@@ -2,47 +2,50 @@
     font-family: 'Gotham-Light';
     src: url('/fonts/Gotham-Light.ttf');
 }
-.navbar-brand{
-        font-size: 13pt;
-        font-family: 'Gotham-Light';
-        color: white !important;
+.navbar-brand {
+    font-size: 13pt;
+    font-family: 'Gotham-Light';
+    color: white !important;
 }
-.navbar-inverse{
+.navbar-inverse {
     background-color: rgba(56, 59, 65, 0.84);
     border: none;
 }
-.navbar-inverse .navbar-nav  .active a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav> .active> a:hover, .navbar-inverse .navbar-nav> .active> a:focus {
     background-color: #0B3563;
 }
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+.navbar-inverse .navbar-nav> .open> a, .navbar-inverse .navbar-nav> .open> a:hover, .navbar-inverse .navbar-nav> .open> a:focus {
     background-color: #0B3563;
 }
-.navbar{
+.navbar {
     border-radius: 0px;
     margin-bottom: 0px;
-    height:50px;
-    min-height:0px !important;
+    height: 50px;
+    min-height: 0px !important;
     z-index: 10;
 }
-.navbar-nav{
-    height:50px;
+.navbar-nav {
+    height: 50px;
 }
-#background { 
-  padding-left:0px;
-  padding-right:0px;
-  background-position: center;  
-  background-size: cover;
-  background-repeat: no-repeat;
-  position:fixed; 
-  left: 0px; 
-  top: 0px;  
-  width:100vw; 
-  height:100vh; 
-  -webkit-user-select: none; -khtml-user-select: none; 
-  -moz-user-select: none; -o-user-select: none; user-select: none; 
-  z-index: -1; 
+#background {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    z-index: -1;
 }
-body:after{
+body:after {
     content: '';
     position: absolute;
     left: 0;
@@ -53,59 +56,60 @@ body:after{
     opacity: 0.8;
     z-index: -1;
 }
-.nameField{
-    float:left;
-    margin:0px;
-    margin-right:10px;
+.nameField {
+    float: left;
+    margin: 0px;
+    margin-right: 10px;
 }
-.modal-body{
-    font-size:12pt;
+.modal-body {
+    font-size: 12pt;
 }
-.appContainer{
-    margin-left:auto;
+.appContainer {
+    margin-left: auto;
     margin-right: auto;
-    border-radius:5px;
+    border-radius: 5px;
     text-align: center;
     background-color: transparent;
 }
-.captionText{
-     text-align:center;
-     font-size: 35px;
-     color: white;
-     padding-bottom: 0px;
-     margin-top: 0px;
-     font-family: 'Gotham-Light';;
-     text-decoration: underline;
+.captionText {
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    font-family: 'Gotham-Light';
+    ;
+    text-decoration: underline;
 }
-.btn{
+.btn {
     border: 2px solid #29a468 !important;
-  border-radius: 4px !important;
-  font-family: 'Gotham-Light' !important;
-  height: 34px !important;
-  text-align: center !important;
+    border-radius: 4px !important;
+    font-family: 'Gotham-Light' !important;
+    height: 34px !important;
+    text-align: center !important;
 }
-.btn:hover{
-     border: 2px solid #29a468 !important;
-   border-radius: 4px !important;
-   font-family: 'Gotham-Light' !important;
-   height: 34px !important;
-   -webkit-transition: all 200ms ease-in-out 0s;
+.btn:hover {
+    border: 2px solid #29a468 !important;
+    border-radius: 4px !important;
+    font-family: 'Gotham-Light' !important;
+    height: 34px !important;
+    -webkit-transition: all 200ms ease-in-out 0s;
     -moz-transition: all 200ms ease-in-out 0s;
     -o-transition: all 200ms ease-in-out 0s;
     transition: all 200ms ease-in-out 0s;
 }
-.btn-primary{
+.btn-primary {
     background-color: transparent !important;
     background-image: none !important;
     color: #29a468 !important;
     font-weight: bold !important;
     font-family: 'Gotham-Light' !important;
-  height: 34px !important;
-  float: right !important;
-  text-align: center !important;
+    height: 34px !important;
+    float: right !important;
+    text-align: center !important;
 }
-.btn-primary:hover{
-      background-color: #29a468 !important;
+.btn-primary:hover {
+    background-color: #29a468 !important;
     border: 2px solid #29a468 !important;
     border-radius: 4px !important;
     color: #f1f1f1 !important;
@@ -117,49 +121,51 @@ body:after{
     -o-transition: all 200ms ease-in-out 0s;
     transition: all 200ms ease-in-out 0s;
 }
-.separatorBar{
-    margin-bottom:5px;
-    margin-top:3px;
+.separatorBar {
+    margin-bottom: 5px;
+    margin-top: 3px;
     border-bottom: 1px dotted rgb(16, 131, 255);
-    width:100%;
-    height:10px;
+    width: 100%;
+    height: 10px;
     margin-left: auto;
     margin-right: auto;
 }
-.footer{
-    float:left;
-    text-align:center;
-    background-color: rgba(56, 59, 65, 0.84);;
-    color:white;
-    width:100%;
+.footer {
+    float: left;
+    text-align: center;
+    background-color: rgba(56, 59, 65, 0.84);
+    ;
+    color: white;
+    width: 100%;
     position: absolute;
     bottom: 0px;
     left: 0px;
 }
 .wingmanText {
-  font-weight: 900;
-  color: white;
-  font-size: 30px;
-  color: #fffff;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
-  float: left;
-  font-family: 'Gotham-Light';
+    font-weight: 900;
+    color: white;
+    font-size: 30px;
+    color: #fffff;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    float: left;
+    font-family: 'Gotham-Light';
 }
-.buttonsDiv{
-  width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 35px;
+.buttonsDiv {
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
 }
 .nl-form {
     width: 100%;
     margin: 0.3em auto 0 auto;
     font-size: 4em;
     line-height: 1.5;
-    font-family: 'Gotham-Light';;
+    font-family: 'Gotham-Light';
+    ;
     color: white;
 }
 .nl-field-toggle, .nl-form input, .nl-form select {
@@ -169,71 +175,65 @@ body:after{
     cursor: pointer;
     border-bottom: 1px dashed #29a468 !important;
 }
-.nl-submit{
+.nl-submit {
     font-size: 20% !important;
     background: #29a468 !important;
 }
-.nl-submit:before{
+.nl-submit:before {
     background: #29a468 !important;
 }
-.nl-submit-wrap{
+.nl-submit-wrap {
     padding-bottom: 5px;
 }
-.pickText{
+.pickText {
     color: white;
     font-size: 20px;
     float: left;
     font-family: 'Gotham-Light';
 }
-.totalText{
+.totalText {
     color: white;
     font-size: 20px;
     font-family: 'Gotham-Light';
 }
-.checkUberBox{
-    border:2px dotted #00f;
-    background:#ff0000;
+.checkUberBox {
+    border: 2px dotted #00f;
+    background: #ff0000;
 }
-.checkUber{
-    color:white;
-    display:block;
+.checkUber {
+    color: white;
+    display: block;
     padding-bottom: 5px;
 }
-.planTitle{
+.planTitle {
     color: white;
-    float:left;
+    float: left;
     font-size: 20px;
     font-family: 'Gotham-Light';
 }
-.restaurantImages{
+.restaurantImages {
     display: inline;
 }
-.entertainmentImages{
+.entertainmentImages {
     display: inline;
 }
-.planLayout{
-    
-}
-
-#icon{
+.planLayout {}
+#icon {
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
-
-.pickerList p{
-  text-align: left;
-  padding-left: 20px;
-  font-weight: 600;
+.pickerList p {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 600;
 }
-
-.movieList p{
-  text-align: left;
-  padding-left: 20px;
-  font-weight: 600;
+.movieList p {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 600;
 }
-
-.cardLayout{
+.cardLayout {
     width: 180px;
     height: 130px;
     background-color: #f5f5f5;
@@ -243,77 +243,66 @@ body:after{
     margin-right: 20px;
     position: relative;
 }
-
-.cardLayout .bkg{
-  position: absolute;
-  -webkit-filter: blur(2px);
-  width: 100%;
-  height: 100%;
-  opacity: 0 ;
+.cardLayout .bkg {
+    position: absolute;
+    -webkit-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
 }
-
-.cardLayout:hover{
+.cardLayout:hover {
     opacity: .8;
 }
-
-.cardLayout:hover .bkg{
-  opacity: 1;
+.cardLayout:hover .bkg {
+    opacity: 1;
 }
-
-.cardLayout .top{
-  height: 100px;
+.cardLayout .top {
+    height: 100px;
 }
-
-.cardLayout .bottom{
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
+.cardLayout .bottom {
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.cardLayout .name{
-      color: #29a468;
-      font-size: 14pt;
+.cardLayout .name {
+    color: #29a468;
+    font-size: 14pt;
 }
-.cardLayout .location{
-      color: #29a468;
-      font-size: 10pt;
+.cardLayout .location {
+    color: #29a468;
+    font-size: 10pt;
 }
-
-.cardLayout .price{
-      color: #29a468;
-      font-size: 10pt;
-      float: right;
+.cardLayout .price {
+    color: #29a468;
+    font-size: 10pt;
+    float: right;
 }
-
-.cardLayout .stars{
-      color: #29a468;
-      font-size: 10pt;
-      float: left;
+.cardLayout .stars {
+    color: #29a468;
+    font-size: 10pt;
+    float: left;
 }
-
-.movieList{
-  display:none;
+.movieList {
+    display: none;
 }
-
 .planList {
-  height: 200px;
-  width: 850px;
-  display: none;
-  color: #29a468;
+    height: 200px;
+    width: 850px;
+    display: none;
+    color: #29a468;
 }
-
 .start {
     float: left !important;
     margin-top: 27px !important;
     font-size: 75px !important;
     margin-right: 20px;
 }
-
-.finish{
-  float: left !important;
-  margin-top: 27px !important;
-  font-size: 75px !important; 
-  margin-right: 20px;
-  margin-left: 20px;
+.finish {
+    float: left !important;
+    margin-top: 27px !important;
+    font-size: 75px !important;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 .arrow {
     float: left;
@@ -323,31 +312,69 @@ body:after{
     line-height: 40px;
     -webkit-animation: bounce 2s infinite ease-in-out;
     margin-top: 40px;
-
 }
-
-.foodList{
-  display: none;
+.foodList {
+    display: none;
 }
-
 .time {
-  margin-left: -40px;
-  color: white;
-  font-size: 12pt;
-  margin-top: 20px;
-  float: left;
+    margin-left: -40px;
+    color: white;
+    font-size: 12pt;
+    margin-top: 20px;
+    float: left;
 }
-
 .money {
-  margin-left: -40px;
-  color: white;
-  font-size: 12pt;
-  margin-top: 80px;
-  float: left;
+    margin-left: -40px;
+    color: white;
+    font-size: 12pt;
+    margin-top: 80px;
+    float: left;
+}
+@-webkit-keyframes bounce {
+    0%, 20%, 60%, 100% {
+        -webkit-transform: translateX(-10);
+    }
+    40% {
+        -webkit-transform: translateX(0px);
+    }
+    80% {
+        -webkit-transform: translateX(10px);
+    }
 }
 
-@-webkit-keyframes bounce {
-  0%, 20%, 60%, 100%  { -webkit-transform: translateX(-10); }
-    40%  { -webkit-transform: translateX(0px); }
-  80% { -webkit-transform: translateX(10px); }
+/*******************************************************************************
+*  Loading gif modal
+/*******************************************************************************/
+
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /*background: rgba( 255, 255, 255, .8) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;*/
+    background: rgba( 255, 255, 255, .8) url('http://i.imgur.com/7haNFcC.gif?1') 50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+
+body.loading .modal {
+    display: block;
 }

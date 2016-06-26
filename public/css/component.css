@@ -193,7 +193,7 @@ input:focus::-moz-placeholder {
 	color: rgba(255,255,255,0.2);
 }
 
-input:-ms-input-placeholder {  
+input:-ms-input-placeholder {
 	color: rgba(255,255,255,0.8);
 }
 
@@ -228,9 +228,11 @@ input:focus::-ms-input-placeholder {
 	background: #76C3BD;
 	color: #fff;
 	padding: 0 1em 0 0;
-	font-size: 40%;
+	font-size: 16pt;
 	font-weight: bold;
 	letter-spacing: 3px;
+	height: 40px !important;
+	width: 200px;
 }
 
 .nl-submit:before {
