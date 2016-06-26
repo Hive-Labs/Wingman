@@ -70,6 +70,7 @@ body:after {
     border-radius: 5px;
     text-align: center;
     background-color: transparent;
+    height: 474px;
 }
 .captionText {
     text-align: center;
