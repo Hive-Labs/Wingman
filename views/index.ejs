@@ -1,137 +1,191 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Wingman | Hivelabs</title>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wingman | Hivelabs</title>
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-		<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-		<link rel="stylesheet" type="text/css" href="/css/effect.css" />
-		<link rel="stylesheet" type="text/css" href="/css/component.css" />
-		<link rel="stylesheet" type="text/css" href="/css/index.css" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<script src="/js/modernizr.custom.js"></script>
-		<!-- Progress Bar -->
-		<script src="//fast.eager.io/FhjVmkFY1Z.js"></script>
-		<!-- End Progress Bar -->
-		<script src="/js/nlform.js"></script>
-		<script>
-			window.onload = function(){
-				var nlform = new NLForm(document.getElementById('nl-form'));
-				var images = ['bluevan.jpg', 'canoelake.jpg', 'mtjump.jpg', 'shaggy.jpg', 'sunsetbeach.jpg'];
-		   		$('#background').css({'background-image': 'url(/img/images/backgroundImages/' + images[Math.floor(Math.random() * images.length)] + ')'});
-			}
-		</script>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHu_rbvc8QwcZze4pCS3AuJASFEbefBk8&libraries=places"></script>
-	</head>
-	<body class="wingmanMain">
-		<div class="wingmanText">Wingman</div>
-		<div id="ip-container" class="ip-container">
-			<!-- initial header -->
-			<header class="ip-header">
-				<h1 class="ip-logo">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+
+	<link rel="stylesheet" type="text/css" href="/css/effect.css" />
+	<link rel="stylesheet" type="text/css" href="/css/component.css" />
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src="/js/modernizr.custom.js"></script>
+	<!-- Progress Bar -->
+	<script src="//fast.eager.io/FhjVmkFY1Z.js"></script>
+	<!-- End Progress Bar -->
+	<script src="/js/nlform.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>
+	<script>
+		if (annyang) {
+			console.log("annyang");
+			// Let's define our first command. First the text we expect, and then the function it should call
+			var commands = {
+				'Search': function() {
+					console.log("Hello Make me happy");
+					$('#makeMeHappy').click();
+				},
+				'Let"s go': function() {
+					$('#makeMeHappy').click();
+				},
+				'Jarvis': function() {
+					$('#makeMeHappy').click();
+				},
+				'Wingman': function() {
+					$('#makeMeHappy').click();
+				}
+			};
+
+			// Add our commands to annyang
+			annyang.addCommands(commands);
+
+			// Start listening. You can call this here, or attach this call to an event, button, etc.
+			annyang.start();
+		}
+	</script>
+	<script>
+		window.onload = function() {
+			var nlform = new NLForm(document.getElementById('nl-form'));
+			var images = ['bluevan.jpg', 'canoelake.jpg', 'mtjump.jpg', 'shaggy.jpg', 'sunsetbeach.jpg'];
+			$('#background').css({
+				'background-image': 'url(/img/images/backgroundImages/' + images[Math.floor(Math.random() * images.length)] + ')'
+			});
+		}
+	</script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHu_rbvc8QwcZze4pCS3AuJASFEbefBk8&libraries=places"></script>
+</head>
+
+<body class="wingmanMain">
+	<div class="wingmanText">Wingman</div>
+	<div id="ip-container" class="ip-container">
+		<!-- initial header -->
+		<header class="ip-header">
+			<h1 class="ip-logo">
 				<i id="icon" class="fa fa-connectdevelop" style="text-shadow: none; font-size: 200px; color: rgb(41, 164, 104); height: 320px; width: 320px; line-height: 150px; border-radius: 0%; text-align: center;"></i>
 				</h1>
-				<div class="ip-loader">
-								<div class="wingmanTextLoading">Initializing Wingman</div>
-					<svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
-						<path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
-						<path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
-					</svg>
-				</div>
-			</header>
-
-			<!-- main content -->
-			<div class="ip-main">
-				<div id="background"></div>
-					<div id="appContainer" class="appContainer jumbotron">
-					        <div class="main clearfix">
-					            <div id="nl-form" class="nl-form">
-					                I have <input type="text" name="money" value="" placeholder="$$$" data-subline="For example: <em>$300</em> or <em>$45.50</em>"/> for
-					                <input type="text" name="people" value="" placeholder="2" data-subline="For example: <em>4</em>"/>
-					                 people.
-					                <br>
-					                We want
-					                <select name="food">
-					                    <option value="1" selected>any food</option>
-					                    <option value="2">Indian food</option>
-					                    <option value="4">Japanese food</option>
-					                    <option value="5">Mexican food</option>
-					                    <option value="6">Chinese food</option>
-					                    <option value="2">Italian food</option>
-					                </select>
-					                <select name="time">
-					                    <option value="1" selected>any time</option>
-					                    <option value="3">right now</option>
-					                    <option value="4">at 7 pm</option>
-					                    <option value="5">at 8 pm</option>
-					                    <option value="6">at 9 pm</option>
-					                    <option value="7">at 10 pm</option>
-					                </select>
-					                around <input name="location" type="text" value="" placeholder="here" data-subline="For example: <em>Boston</em> or <em>Los Angeles</em>"/>.
-					                <br>
-					                We want to 
-					                <input name="activity" type="text" value="" placeholder="activities" data-subline="For example: <em>Take a walk</em>"/>.
-					                <br>
-					                I <select name="uber">
-					                    <option value="1" selected>need</option>
-					                    <option value="2">don't need</option>
-					                </select> an Uber.
-					                <div class="nl-submit-wrap">
-					                    <button class="nl-submit" id="makeMeHappy">Make me happy</button>
-					                </div>
-					                <div class="foodList">
-					                <p>Pick something to eat:</p>
-
-					                </div>
-					               	<div class="movieList">
-					                <p>Pick something to watch:</p>
-
-					                </div>
-					                <div class="planList">
-					                <p class="totalCost">Here's your plan! Your total cost for this plan is $100.</p>
-					                	<p class="start glyphicon glyphicon-home"/>
-					                	<div class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
-					                	<p class="time time0">20m</p>
-					                	<p class="money money0">$10</p>
-						                <div class="cardLayout finalFood"><div class="top"><div class="bkg"></div><div class="name"></div><div class="location"></div></div><div class="bottom"><div class="stars"></div><div class="price" id="priceText"></div></div></div>
-
-						                <div class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
-										<p class="time time1">20m</p>
-					                	<p class="money money1">$10</p>
-						                <div class="cardLayout finalMovie"><div class="top"><div class="bkg"></div><div class="name"></div><div class="location"></div></div><div class="bottom"><div class="stars"></div><div class="price"></div></div></div>
-
-						                <div class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
-						                <p class="time time2">20m</p>
-					                	<p class="money money2">$10</p>
-						                <p class="finish glyphicon glyphicon-home"/>
-					                </div>
-					                <div class="nl-overlay"></div>
-					            </div>
-					        </div>
-
-					<!--<div class="footer">&copy; Wingman, 2016</div>-->
+			<div class="ip-loader">
+				<div class="wingmanTextLoading">Initializing Wingman</div>
+				<svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+					<path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z" />
+					<path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z" />
+				</svg>
 			</div>
-		</div><!-- /container -->
-		<div class="modal"><!-- Place at bottom of page --></div>
-		<script src="/js/classie.js"></script>
-		<script src="/js/pathLoader.js"></script>
-		<script src="/js/main.js"></script>
-		<script src="/js/backendGlue.js"></script>
-		<script src="/js/loadingModal.js"></script>
-		<script src="/js/recorder.js"></script>
-	</body>
+		</header>
+
+		<!-- main content -->
+		<div class="ip-main">
+			<div id="background"></div>
+			<div id="appContainer" class="appContainer jumbotron">
+				<div class="main clearfix">
+					<div id="nl-form" class="nl-form">
+						I have
+						<input type="text" name="money" value="" placeholder="$$$" data-subline="For example: <em>$300</em> or <em>$45.50</em>" /> for
+						<input type="text" name="people" value="" placeholder="2" data-subline="For example: <em>4</em>" /> people.
+						<br> We want
+						<select name="food">
+							<option value="1" selected>any food</option>
+							<option value="2">Indian food</option>
+							<option value="3">French food</option>
+							<option value="4">Japanese food</option>
+							<option value="5">Mexican food</option>
+							<option value="6">Chinese food</option>
+							<option value="2">Italian food</option>
+						</select>
+						<select name="time">
+							<option value="1" selected>any time</option>
+							<option value="3">right now</option>
+							<option value="4">at 7 pm</option>
+							<option value="5">at 8 pm</option>
+							<option value="6">at 9 pm</option>
+							<option value="7">at 10 pm</option>
+							<option value="2">at 11 pm</option>
+						</select>
+						around
+						<input name="location" type="text" value="" placeholder="here" data-subline="For example: <em>Boston</em> or <em>Los Angeles</em>" />.
+						<br> We want to
+						<input name="activity" type="text" value="" placeholder="activities" data-subline="For example: <em>Take a walk</em>" />.
+						<br> I
+						<select name="uber">
+							<option value="1" selected>need</option>
+							<option value="2">don't need</option>
+						</select> an Uber.
+						<div class="nl-submit-wrap">
+							<button class="nl-submit" id="makeMeHappy">Make me happy</button>
+						</div>
+						<div class="foodList">
+							<p>Pick something to eat:</p>
+
+						</div>
+						<div class="movieList">
+							<p>Pick something to watch:</p>
+
+						</div>
+						<div class="planList">
+							<p class="totalCost">Here's your plan! Your total cost for this plan is $100.</p>
+							<p class="start glyphicon glyphicon-home" />
+							<div class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
+							<p class="time time0">20m</p>
+							<p class="money money0">$10</p>
+							<div class="cardLayout finalFood">
+								<div class="top">
+									<div class="bkg"></div>
+									<div class="name"></div>
+									<div class="location"></div>
+								</div>
+								<div class="bottom">
+									<div class="stars"></div>
+									<div class="price" id="priceText"></div>
+								</div>
+							</div>
+
+							<div class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
+							<p class="time time1">20m</p>
+							<p class="money money1">$10</p>
+							<div class="cardLayout finalMovie">
+								<div class="top">
+									<div class="bkg"></div>
+									<div class="name"></div>
+									<div class="location"></div>
+								</div>
+								<div class="bottom">
+									<div class="stars"></div>
+									<div class="price"></div>
+								</div>
+							</div>
+
+							<div class="arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
+							<p class="time time2">20m</p>
+							<p class="money money2">$10</p>
+							<p class="finish glyphicon glyphicon-home" />
+						</div>
+						<div class="nl-overlay"></div>
+					</div>
+				</div>
+				</header>
+				<!-- /container -->
+				<div class="modal">
+					<!-- Place at bottom of page -->
+				</div>
+				<script src="/js/classie.js"></script>
+				<script src="/js/pathLoader.js"></script>
+				<script src="/js/main.js"></script>
+				<script src="/js/backendGlue.js"></script>
+				<script src="/js/loadingModal.js"></script>
+				<script src="/js/recorder.js"></script>
+</body>
+
 </html>

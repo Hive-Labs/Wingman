@@ -13,6 +13,9 @@ var Uber = require('uber-api')({
     server_token: 'cepnsST9mZ0VJPuWT4y6h_82P9-xxLLpA4ZmBfIi',
     version: 'v1'
 });
+var fs = require('fs');
+var restler = require('restler');
+
 var url = require('url');
 
 var app = express();
@@ -37,11 +40,23 @@ app.use('/record', record);
 
 /**
  * Get speech recognition from HPE
+ * https://github.com/danwrong/restler
  */
- function getSpeechRecognition(fileLocation) {
-   var api_key = "9f68afe8-cdd7-43b3-a9e6-bfdb9e1d93bb";
-   var URL = "https://api.havenondemand.com/1/api/async/recognizespeech/v1"
- }
+function getSpeechRecognition(file) {
+    var apikey = "9f68afe8-cdd7-43b3-a9e6-bfdb9e1d93bb";
+    var URL = "https://api.havenondemand.com/1/api/async/recognizespeech/v1?&file=" + file + "&apikey=" + apikey;
+    fs.stat(file, function(err, stats) {
+        restler.post(URL, {
+            multipart: true,
+            data: {
+                "folder_id": "0",
+                "filename": restler.file(file, null, stats.size, null, "audio/wav")
+            }
+        }).on("complete", function(data) {
+            console.log("WORKING!");
+        });
+    });
+}
 /**
  * Get estimate price from current location to destination with Uber API
  */
@@ -147,6 +162,9 @@ function formatDate(date) {
  * /v1/find - get list of restaurants and movies.
  * /v1/uber - get estimate price and time.
  */
+
+app.use('/v1/speech', function(req, res, next) {
+});
 
 app.use('/v1/find', function(req, res, next) {
     findMovie(req.body.slat, req.body.slon, formatDate(req.body.date), function(err, movies) {
