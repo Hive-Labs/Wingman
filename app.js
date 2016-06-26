@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var record = require('./routes/record');
 var users = require('./routes/users');
 var request = require('request');
 var Uber = require('uber-api')({
@@ -32,7 +33,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/record', record);
 
+/**
+ * Get speech recognition from HPE
+ */
+ function getSpeechRecognition(fileLocation) {
+   var api_key = "9f68afe8-cdd7-43b3-a9e6-bfdb9e1d93bb";
+   var URL = "https://api.havenondemand.com/1/api/async/recognizespeech/v1"
+ }
 /**
  * Get estimate price from current location to destination with Uber API
  */
