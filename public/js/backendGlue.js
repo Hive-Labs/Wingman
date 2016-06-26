@@ -128,7 +128,7 @@ function calculateUber(food, movie) {
                             ":" + (time.getMinutes() < 10 ? ("0" + time.getMinutes()) : time.getMinutes()));
 
                         for (var j = 0; j < 3; j++) {
-                            $(".time" + j).text(ways[j].duration + "m");
+                            $(".time" + j).text(ways[j].duration + "mins");
                             $(".money" + j).text(ways[j].price);
                         }
                         var costUberTotal = Number(ways[0].price.replace(/[^0-9\.]+/g, "")) + Number(ways[1].price.replace(/[^0-9\.]+/g, "")) + Number(ways[2].price.replace(/[^0-9\.]+/g, ""));
