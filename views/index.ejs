@@ -1,0 +1,351 @@
+<head>
+    <title>Wingman</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link rel="stylesheet" href="../public/stylesheets/component.css">
+    <script src="../public/scripts/nlform.js"></script>
+    <script>
+        window.onload = function() {
+            var nlform = new NLForm(document.getElementById('nl-form'));
+        }
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            var images = ['bluevan.jpg', 'canoelake.jpg', 'mtjump.jpg', 'shaggy.jpg', 'sunsetbeach.jpg'];
+            $('#background').css({
+                'background-image': 'url(../public/images/backgroundImages/' + images[Math.floor(Math.random() * images.length)] + ')'
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'Gotham-Light';
+            src: url('/fonts/Gotham-Light.ttf');
+        }
+
+        .navbar-brand {
+            font-size: 13pt;
+            font-family: 'Gotham-Light';
+            color: white !important;
+        }
+
+        .navbar-inverse {
+            background-color: rgba(56, 59, 65, 0.84);
+            border: none;
+        }
+
+        .navbar-inverse .navbar-nav .active a,
+        .navbar-inverse .navbar-nav> .active> a:hover,
+        .navbar-inverse .navbar-nav> .active> a:focus {
+            background-color: #0B3563;
+        }
+
+        .navbar-inverse .navbar-nav> .open> a,
+        .navbar-inverse .navbar-nav> .open> a:hover,
+        .navbar-inverse .navbar-nav> .open> a:focus {
+            background-color: #0B3563;
+        }
+
+        .navbar {
+            border-radius: 0px;
+            margin-bottom: 0px;
+            height: 50px;
+            min-height: 0px !important;
+            z-index: 10;
+        }
+
+        .navbar-nav {
+            height: 50px;
+        }
+
+        body {
+            padding: 20px !important;
+        }
+
+        #background {
+            padding-left: 0px;
+            padding-right: 0px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100vw;
+            height: 100vh;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            z-index: -1;
+        }
+
+        body:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #383b41;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        .nameField {
+            float: left;
+            margin: 0px;
+            margin-right: 10px;
+        }
+
+        .modal-body {
+            font-size: 12pt;
+        }
+
+        .appContainer {
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 500px;
+            text-align: center;
+            background-color: transparent;
+        }
+
+        .captionText {
+            text-align: center;
+            font-size: 35px;
+            color: white;
+            padding-bottom: 0px;
+            margin-top: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: underline;
+        }
+
+        .btn {
+            border: 2px solid #29a468 !important;
+            border-radius: 4px !important;
+            font-family: 'Gotham-Light' !important;
+            height: 34px !important;
+            text-align: center !important;
+        }
+
+        .btn:hover {
+            border: 2px solid #29a468 !important;
+            border-radius: 4px !important;
+            font-family: 'Gotham-Light' !important;
+            height: 34px !important;
+            -webkit-transition: all 200ms ease-in-out 0s;
+            -moz-transition: all 200ms ease-in-out 0s;
+            -o-transition: all 200ms ease-in-out 0s;
+            transition: all 200ms ease-in-out 0s;
+        }
+
+        .btn-primary {
+            background-color: transparent !important;
+            background-image: none !important;
+            color: #29a468 !important;
+            font-weight: bold !important;
+            font-family: 'Gotham-Light' !important;
+            height: 34px !important;
+            float: right !important;
+            text-align: center !important;
+        }
+
+        .btn-primary:hover {
+            background-color: #29a468 !important;
+            border: 2px solid #29a468 !important;
+            border-radius: 4px !important;
+            color: #f1f1f1 !important;
+            font-weight: bold !important;
+            font-family: 'Gotham-Light' !important;
+            float: right !important;
+            -webkit-transition: all 200ms ease-in-out 0s;
+            -moz-transition: all 200ms ease-in-out 0s;
+            -o-transition: all 200ms ease-in-out 0s;
+            transition: all 200ms ease-in-out 0s;
+        }
+
+        .separatorBar {
+            margin-bottom: 5px;
+            margin-top: 3px;
+            border-bottom: 1px dotted rgb(16, 131, 255);
+            width: 100%;
+            height: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer {
+            float: left;
+            text-align: center;
+            background-color: rgba(56, 59, 65, 0.84);
+            ;
+            color: white;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .wingmanText {
+            margin-left: -18px;
+            margin-top: -30px;
+            font-weight: 300;
+            color: white;
+            font-size: 18px;
+            color: #fffff;
+            position: absolute;
+            float: left;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .buttonsDiv {
+            width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 35px;
+        }
+
+        .nl-form {
+            width: 100%;
+            margin: 0.3em auto 0 auto;
+            font-size: 4em;
+            line-height: 1.5;
+            font-family: 'Lato', Calibri, Arial, sans-serif;
+            color: #ffe8e7;
+        }
+
+        .nl-field-toggle,
+        .nl-form input,
+        .nl-form select {
+            line-height: inherit;
+            display: inline-block;
+            color: #29a468 !important;
+            cursor: pointer;
+            border-bottom: 1px dashed #29a468 !important;
+        }
+
+        .nl-submit {
+            font-size: 20% !important;
+        }
+
+        .nl-submit-wrap {
+            padding-bottom: 5px;
+        }
+
+        .pickText {
+            color: white;
+            font-size: 20px;
+            float: left;
+        }
+
+        .totalText {
+            color: white;
+            font-size: 20px;
+        }
+
+        .checkUberBox {
+            border: 2px dotted #00f;
+            background: #ff0000;
+        }
+
+        .checkUber {
+            color: white;
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .planTitle {
+            color: white;
+            float: left;
+            font-size: 20px;
+        }
+
+        .restaurantImages {
+            display: inline;
+        }
+
+        .entertainmentImages {
+            display: inline;
+        }
+
+        .planLayout {}
+    </style>
+</head>
+
+<body>
+    <div id="background"></div>
+    <div id="appContainer" class="appContainer jumbotron">
+        <div class="wingmanText">Wingman</div>
+        <div class="captionText">Enter details below</div>
+        <div class="main clearfix">
+            <form id="nl-form" class="nl-form">
+                I have
+                <input type="text" name="money" value="" placeholder="$$$" data-subline="For example: <em>$300</em> or <em>$45.50</em>" /> for
+                <select name="people">
+                    <option value="1" selected>2</option>
+                    <option value="2">3</option>
+                    <option value="3">4</option>
+                    <option value="2">5</option>
+                </select> people.
+                <br> We want
+                <select name="food">
+                    <option value="1" selected>any food</option>
+                    <option value="2">Indian food</option>
+                    <option value="3">French food</option>
+                    <option value="4">Japanese food</option>
+                    <option value="5">Mexican food</option>
+                    <option value="6">Chinese food</option>
+                    <option value="2">Italian food</option>
+                </select>
+                <select name="time">
+                    <option value="1" selected>any time</option>
+                    <option value="3">right now</option>
+                    <option value="4">at 7 pm</option>
+                    <option value="5">at 8 pm</option>
+                    <option value="6">at 9 pm</option>
+                    <option value="7">at 10 pm</option>
+                    <option value="8">at 11 pm</option>
+                </select>
+                around
+                <input name="location" type="text" value="" placeholder="this location" data-subline="For example: <em>Boston</em> or <em>Los Angeles</em>" />.
+                <br> I
+                <select name="ubere">
+                    <option value="1" selected>need</option>
+                    <option value="2">don't need</option>
+                </select> an Uber.
+                <div class="nl-submit-wrap">
+                    <button class="nl-submit" type="submit">Make me happy</button>
+                </div>
+                <div class="nl-overlay"></div>
+            </form>
+        </div>
+        <div class="pickText">Pick a restaurant:</div>
+        <br>
+        <div class=restaurantImages></div>
+        <br style="clear:both" />
+        <div class="pickText">Pick a form of entertainment:</div>
+        <br>
+        <div class=entertainmentImages></div>
+        <br style="clear:both" />
+        <div class="totalText">Total Amount: $150</div>
+        <div class="planTitle">Here is a plan for you:</div>
+        <div class=planlayout></div>
+        <div class="footer">&copy; Wingman, 2016</div>
+</body>
+>>>>>>> 0c0b3fb7502e5f5375e160da69302a816b51d3fa
