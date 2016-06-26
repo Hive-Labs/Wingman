@@ -74,11 +74,11 @@
 .nl-field ul {
 	position: absolute;
 	visibility: hidden;
-	background: #706585;
+	background: #435865;
 	left: -0.5em;
 	top: 50%;
 	font-size: 80%;
-	opacity: 0;
+	opacity: 40%;
 	-webkit-transform: translateY(-40%) scale(0.9);
 	-moz-transform: translateY(-40%) scale(0.9);
 	transform: translateY(-40%) scale(0.9);
@@ -104,7 +104,7 @@
 }
 
 .nl-dd ul li {
-	padding: 0 1.5em 0 0.5em;
+	padding: 0 1.5em 0 1.5em;
 	cursor: pointer;
 	white-space: nowrap;
 }
@@ -218,7 +218,6 @@ input:focus::-ms-input-placeholder {
 
 /* submit button */
 .nl-submit-wrap {
-	margin-top: 0.4em;
 }
 
 .nl-form .nl-submit {

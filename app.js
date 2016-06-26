@@ -82,6 +82,7 @@ function latLongToAddress(lat, long, cb) {
  * GrubHub API made with love and beast-mode activated by Rohit.
  */
 function findRestuarant(lat, long, food, cb) {
+    console.log("Finding rest.");
     request.post({
         url: "https://api-gtm.grubhub.com/auth",
         json: {
@@ -91,12 +92,16 @@ function findRestuarant(lat, long, food, cb) {
             "device_id": -901860116
         }
     }, function(err, res, body) {
+        console.log(err);
+        console.log(body);
         request.get("https://api-gtm.grubhub.com/restaurants/search?orderMethod=delivery&locationMode=DELIVERY&facetSet=umami&pageSize=20&hideHateos=true&queryText=" + food + "&location=POINT(" + long + "%20" + lat + ")&variationId=default-impressionScoreBaseBuffed-20160317&countOmittingTimes=true", {
             'auth': {
                 'bearer': body.session_handle.access_token
             }
         }, function(err, res, body) {
-            cb(null, JSON.parse(body));
+            console.log(err);
+            console.log(body);
+            cb(null, JSON.parse(body).search_result.results);
         });
     });
 }
@@ -105,8 +110,11 @@ function findRestuarant(lat, long, food, cb) {
  * Get all movie based on current location.
  */
 function findMovie(lat, long, date, cb) {
-    var URL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + formatDate(new Date()) + "&lat=" + lat + "&lng=" + long + "&radius=20&units=mi&api_key=b5fnfgd9nnzkxs8qnk2jzxsu";
+    var URL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + formatDate(new Date()) + "&lat=" + lat + "&lng=" + long + "&radius=20&units=mi&api_key=3wqax2rafbym3nune53czmfk";
     request(URL, function(error, response, body) {
+        console.log(error);
+        console.log(response.statusCode);
+        console.log(body);
         if (!error && response.statusCode == 200) {
             cb(null, JSON.parse(body));
         }
@@ -135,9 +143,13 @@ function formatDate(date) {
  */
 
 app.use('/v1/find', function(req, res, next) {
+    console.log(req.body);
     findMovie(req.body.slat, req.body.slon, formatDate(req.body.date), function(err, movies) {
+        console.log(err);
+        console.log("Got movies.");
         if (!err) {
             findRestuarant(req.body.slat, req.body.slon, req.body.food, function(err, restaurants) {
+                console.log("Got restaurants.");
                 if (!err) {
                     res.json({
                         movies: movies,
