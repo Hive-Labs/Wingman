@@ -62,7 +62,7 @@ $(document).ready(function() {
 
                             movieDiv.click(function() {
                                 ///
-																
+
                                 calculateUber(currFood, item);
                                 console.log(currFood);
                             })
