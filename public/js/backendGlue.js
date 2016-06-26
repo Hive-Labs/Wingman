@@ -20,13 +20,11 @@ $(document).ready(function(){
 			slon: lon		  	
 		  },
 		  success: function(data){
-		  	console.log(data);
 		  	data.restaurants.forEach(function(item, idx){
 		  			if(idx >= 5) return;
 		  			var thisDiv = jQuery('<div class="cardLayout"><div class="top"><div class="bkg"></div><div class="name"></div><div class="location"></div></div><div class="bottom"><div class="stars"></div><div class="price"></div></div></div>', {
 					    id: 'cardId' + idx
 					});
-					console.log("asdasd");
 					thisDiv.addClass("cardLayout");
 					thisDiv.find(".name").text(item.name);
 					thisDiv.find(".location").text(item.address.address_locality + ", " + item.address.address_region);
@@ -42,9 +40,13 @@ $(document).ready(function(){
 					$(".foodList").show();
 
 					thisDiv.click(function(){
+						///
+						//var loader = new PathLoader(document.getElementById('ip-loader-circle'));
+						//loader.setProgressFn(simulationFn);
 						currFood = item;
 						$(".foodList").hide();
 						$(".movieList").show();
+						///
 						data.movies.forEach(function(item, idx2){
 							if(idx2 >= 5) return;
 							var movieDiv = jQuery('<div class="cardLayout"><div class="top"><div class="bkg"></div><div class="name"></div><div class="location"></div></div><div class="bottom"><div class="stars"></div><div class="price"></div></div></div>', {
@@ -60,7 +62,9 @@ $(document).ready(function(){
 							movieDiv.appendTo(".movieList");
 
 							movieDiv.click(function(){
+								///
 								calculateUber(currFood, item);
+								console.log(currFood);
 							})
 						});
 					});
@@ -82,7 +86,6 @@ function calculateUber(food, movie){
 	  var $attrib = $('<div id="attributions"></div>');
 	  service = new google.maps.places.PlacesService($attrib[0]);
 	  service.textSearch(request, function(results, status){
-	  	console.log(results[0]);
 	  	if (status == google.maps.places.PlacesServiceStatus.OK) {
 			var datas = [{
 			  	slat: currPosition.coords.latitude,
@@ -117,7 +120,6 @@ function calculateUber(food, movie){
 							}
 							foodDiv.find(".bkg").css("background-image", "url('" + food.logo + "')");
 							foodDiv.find(".price").text("$" + ((food.delivery_minimum.price / 100) + 10));
-
 							var movieDiv = $(".finalMovie");
 							movieDiv.find(".name").text(movie.title);
 							movieDiv.find(".location").text(movie.showtimes[0].theatre.name);
@@ -130,7 +132,11 @@ function calculateUber(food, movie){
 								$(".time" + j).text(ways[j].duration + "m");
 								$(".money" + j).text(ways[j].price);
 							}
-
+							var costUberTotal = Number(ways[0].price.replace(/[^0-9\.]+/g,"")) + Number(ways[1].price.replace(/[^0-9\.]+/g,"")) + Number(ways[2].price.replace(/[^0-9\.]+/g,""));
+							var totalCost = costUberTotal + ((food.delivery_minimum.price / 100) + 22); 
+							var totalCostFinal = totalCost.toFixed(2);
+							$(".totalCost").text("Here's your plan! Your total cost for this plan is $" + totalCostFinal + ".");
+							///
 							$(".planList").css("display", "inline-block");
 						 	$(".movieList").hide();
 						});
