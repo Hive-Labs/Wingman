@@ -12,6 +12,7 @@ var Uber = require('uber-api')({
     server_token: 'cepnsST9mZ0VJPuWT4y6h_82P9-xxLLpA4ZmBfIi',
     version: 'v1'
 });
+var url = require('url');
 
 var app = express();
 
@@ -132,37 +133,42 @@ function formatDate(date) {
 
 /**
  * Wingman API to get Uber estimate price, restaurants and movies
+ * /v1/find - get list of restaurants and movies.
+ * /v1/uber - get estimate price and time.
  */
-app.use('/wingman', function(req, res, next) {
-    var start_lat = req.body.start_lat;
-    var start_long = req.body.start_long;
-    var end_lat = req.body.end_lat;
-    var end_long = req.body.end_long;
-    var food = req.body.food;
-    var money = req.body.money;
-    var movie = req.body.movie;
-    var uber = req.body.uber;
-    // Welcome to the world of callback hell.
-    getEstimatePriceUber(42.3601, -71.0589, 42.3601, -71, function(err, price) {
+
+app.post('/v1/find', function(req, res, next) {
+  console.log(req.body);
+    var url_parts = url.parse(request.url, true);
+    var query = url_parts.query;
+    findMovie(query.slat, query.slon, formatDate(query.date), function(err, movies) {
         if (!err) {
-            getEstimateTimeUser(42.3601, -71.0589, function(err, time) {
+            findRestuarant(query.slat, query.slon, query.food, function(err, restaurants) {
                 if (!err) {
-                    findMovie(42.3601, -71.0589, formatDate(new Date()), function(err, movies) {
-                        if (!err) {
-                            findRestuarant(42.3601, -71.0589, "Chinese", function(err, restaurants) {
-                                if (!err) {
-                                    res.json({
-                                        time: time,
-                                        movies: movies,
-                                        price: price,
-                                        restaurants: restaurants
-                                    });
-                                    next();
-                                }
-                                console.log(err);
-                            });
-                        }
-                        console.log(err);
+                    res.json({
+                        movies: movies,
+                        restaurants: restaurants
+                    });
+                }
+                console.log(err);
+            });
+        }
+        console.log(err);
+    });
+});
+
+app.use('/v1/uber', function(req, res, next) {
+    var slat = req.body.slat;
+    var slon = req.body.slon;
+    var elat = req.body.elat;
+    var elon = req.body.elon;
+    getEstimatePriceUber(slat, slon, elat, elon, function(err, price) {
+        if (!err) {
+            getEstimateTimeUser(slat, slon, function(err, time) {
+                if (!err) {
+                    res.json({
+                        price: price,
+                        time: time
                     });
                 }
                 console.log(err);
