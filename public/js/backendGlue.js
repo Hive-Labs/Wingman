@@ -51,7 +51,20 @@ $(document).ready(function() {
                             var movieDiv = jQuery('<div class="cardLayout"><div class="top"><div class="bkg"></div><div class="name"></div><div class="location"></div></div><div class="bottom"><div class="stars"></div><div class="price"></div></div></div>', {
                                 id: 'cardId' + idx
                             });
+                            console.log(data.movies);
                             movieDiv.addClass("cardLayout");
+                            if (idx2 == 0){
+                                movieDiv.find(".bkg").css("background-image", "url('../img/images/movieImages/Genius.jpg')");
+                            } else if (idx2 == 1){
+                                movieDiv.find(".bkg").css("background-image", "url('../img/images/movieImages/Tickled.jpg')");
+                            } else if (idx2 == 2){
+                                movieDiv.find(".bkg").css("background-image", "url('../img/images/movieImages/TheNeonDemon.jpg')");
+                            } else if (idx2 == 3){
+                                movieDiv.find(".bkg").css("background-image", "url('../img/images/movieImages/Weiner.jpg')");
+                            } else if (idx2 == 4){
+                                movieDiv.find(".bkg").css("background-image", "url('../img/images/movieImages/LoveandFriendship.jpg')");
+                            }
+
                             movieDiv.find(".name").text(item.title);
                             movieDiv.find(".location").text(item.showtimes[0].theatre.name);
                             movieDiv.find(".stars").text(item.ratings[0].code);
