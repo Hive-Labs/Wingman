@@ -34,7 +34,7 @@ $(document).ready(function() {
                         starDiv.appendTo(thisDiv.find(".stars"));
                     }
                     thisDiv.find(".bkg").css("background-image", "url('" + item.logo + "')");
-                    thisDiv.find(".price").text("$" + ((item.delivery_minimum.price / 100) + 10));
+                    thisDiv.find(".price").text("$" + ($("[name='people']").val() * ((item.delivery_minimum.price / 100) + 10)));
                     thisDiv.appendTo($(".foodList"));
                     $(".foodList").show();
 
@@ -118,7 +118,7 @@ function calculateUber(food, movie) {
                             starDiv.appendTo(foodDiv.find(".stars"));
                         }
                         foodDiv.find(".bkg").css("background-image", "url('" + food.logo + "')");
-                        foodDiv.find(".price").text("$" + ((food.delivery_minimum.price / 100) + 10));
+                        foodDiv.find(".price").text("$" + ($("[name='people']").val() * ((food.delivery_minimum.price / 100) + 10)));
                         var movieDiv = $(".finalMovie");
                         movieDiv.find(".name").text(movie.title);
                         movieDiv.find(".location").text(movie.showtimes[0].theatre.name);
@@ -132,7 +132,7 @@ function calculateUber(food, movie) {
                             $(".money" + j).text(ways[j].price);
                         }
                         var costUberTotal = Number(ways[0].price.replace(/[^0-9\.]+/g, "")) + Number(ways[1].price.replace(/[^0-9\.]+/g, "")) + Number(ways[2].price.replace(/[^0-9\.]+/g, ""));
-                        var totalCost = costUberTotal + ((food.delivery_minimum.price / 100) + 22);
+                        var totalCost = costUberTotal + ($("[name='people']").val() * ((food.delivery_minimum.price / 100) + 22));
                         var totalCostFinal = totalCost.toFixed(2);
                         $(".totalCost").text("Here's your plan! Your total cost for this plan is $" + totalCostFinal + ".");
                         ///

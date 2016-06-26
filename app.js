@@ -117,7 +117,7 @@ function findRestuarant(lat, long, food, cb) {
  * Get all movie based on current location.
  */
 function findMovie(lat, long, date, cb) {
-    var api_key = "6yxxra99e473qawkss5z6vm8";
+    var api_key = "37eshrgqbkxxbpqhgmbadt52";
     var URL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + formatDate(new Date()) + "&lat=" + lat + "&lng=" + long + "&radius=20&units=mi&api_key=" + api_key;
     request(URL, function(error, response, body) {
         console.log(error);
