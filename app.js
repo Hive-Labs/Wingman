@@ -74,7 +74,6 @@ function latLongToAddress(lat, long, cb) {
         if (!err) {
             cb(null, JSON.parse(body).results[0].formatted_address);
         }
-        console.log(err);
     });
 }
 
@@ -97,9 +96,7 @@ function findRestuarant(lat, long, food, cb) {
                 'bearer': body.session_handle.access_token
             }
         }, function(err, res, body) {
-            console.log(err);
-            console.log(body);
-            cb(null, body);
+            cb(null, JSON.parse(body));
         });
     });
 }
@@ -108,7 +105,7 @@ function findRestuarant(lat, long, food, cb) {
  * Get all movie based on current location.
  */
 function findMovie(lat, long, date, cb) {
-    var URL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + date + "&lat=" + lat + "&lng=" + long + "&radius=20&units=mi&api_key=b5fnfgd9nnzkxs8qnk2jzxsu";
+    var URL = "http://data.tmsapi.com/v1.1/movies/showings?startDate=" + formatDate(new Date()) + "&lat=" + lat + "&lng=" + long + "&radius=20&units=mi&api_key=b5fnfgd9nnzkxs8qnk2jzxsu";
     request(URL, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             cb(null, JSON.parse(body));
@@ -137,13 +134,10 @@ function formatDate(date) {
  * /v1/uber - get estimate price and time.
  */
 
-app.post('/v1/find', function(req, res, next) {
-  console.log(req.body);
-    var url_parts = url.parse(request.url, true);
-    var query = url_parts.query;
-    findMovie(query.slat, query.slon, formatDate(query.date), function(err, movies) {
+app.use('/v1/find', function(req, res, next) {
+    findMovie(req.body.slat, req.body.slon, formatDate(req.body.date), function(err, movies) {
         if (!err) {
-            findRestuarant(query.slat, query.slon, query.food, function(err, restaurants) {
+            findRestuarant(req.body.slat, req.body.slon, req.body.food, function(err, restaurants) {
                 if (!err) {
                     res.json({
                         movies: movies,
