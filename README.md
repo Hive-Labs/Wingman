@@ -10,7 +10,12 @@ Plan your perfect date.
       - slat - start latitude
       - slon - start longitude
       - food - food category
-      - date - date in yyyy-mm-dd format
+      - date - date in yyyy-mm-dd format           
       i.e: /v1/food?slat=41&slon=-72&food=chinese
 - Get */v1/uber*
   - The uber endpoint return estimate price and time.
+  - Query parameters:
+      - slat - start latitude
+      - slon - start longitude
+      - elat - end latitude
+      - elon - end longitude
