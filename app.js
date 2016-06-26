@@ -14,7 +14,6 @@ var Uber = require('uber-api')({
     version: 'v1'
 });
 var fs = require('fs');
-var restler = require('restler');
 
 var url = require('url');
 

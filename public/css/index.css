@@ -300,7 +300,7 @@ body:after {
 }
 .planList {
     height: 200px;
-    width: 850px;
+    width: 865px;
     display: none;
     color: #29a468;
 }
@@ -328,6 +328,11 @@ body:after {
 }
 .foodList {
     display: none;
+}
+
+.foodList p{
+  padding-left: 20px;
+  text-align: left;
 }
 .time {
     margin-left: -40px;
